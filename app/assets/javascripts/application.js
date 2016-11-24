@@ -100,4 +100,48 @@
     global.LCC = LCC;
 
 })(window, jQuery);
+(function ($) {
+    $("#ctl00_ctl47_g_fa1642fb_8173_4dfa_a0b7_e943bca4c67a_txtStartDate").datepicker({
+        defaultDate: null,
+        dateFormat: "dd/mm/yy",
+        changeMonth: true,
+        minDate: 0,
+        onSelect: function(selected) {
+            $("ctl00_ctl47_g_fa1642fb_8173_4dfa_a0b7_e943bca4c67a_txtEndDate").datepicker("option", "minDate", selected)
+        }
+    });
+    $("ctl00_ctl47_g_fa1642fb_8173_4dfa_a0b7_e943bca4c67a_txtEndDate").datepicker({
+        defaultDate: null,
+        dateFormat: "dd/mm/yy",
+        changeMonth: true,
+        minDate: 0,
+        onSelect: function (selected) {
+            $("ctl00_ctl47_g_fa1642fb_8173_4dfa_a0b7_e943bca4c67a_txtStartDate").datepicker("option", "maxDate", selected)
+        }
+    });        
+    $('.activitySearchHomeHeader a').click(function () {
+        $('.activitySearchHomeContent').slideToggle("slow");
+        $('.activitySearchHomeHeader').toggleClass("active");
+        
+    });
+        
+    $('.rbEvents').click(function () {
+        $(".searchEvents").css('display', 'block');
+        $(".searchVenues").css('display', 'none');
+        $('.rbEvents input:radio').attr('checked', true);
+        $('.rbVenues input:radio').attr('checked', false);
+
+    });
+    $('.rbVenues').click(function () {
+        $(".searchEvents").css('display', 'none');
+        $(".searchVenues").css('display', 'block');
+        $('.rbEvents input:radio').attr('checked', false);
+        $('.rbVenues input:radio').attr('checked', true);
+    });
+    var fixPlaceholderText = new FixPlaceholderText();
+    fixPlaceholderText.fixPlaceholderText();
+
+})(jQuery);
+
+
 
