@@ -103,23 +103,22 @@
 (function ($) {
     
     $(document).ready(function () {
-    
-        $("#ctl00_ctl47_g_fa1642fb_8173_4dfa_a0b7_e943bca4c67a_txtStartDate").datepicker({
+        $("input[data-type='datepicker-start']").datepicker({
             defaultDate: null,
             dateFormat: "dd/mm/yy",
             changeMonth: true,
             minDate: 0,
             onSelect: function(selected) {
-                $("#ctl00_ctl47_g_fa1642fb_8173_4dfa_a0b7_e943bca4c67a_txtEndDate").datepicker("option", "minDate", selected)
+                $("input[data-type='datepicker-end']").datepicker("option", "minDate", selected)
             }
         });
-        $("#ctl00_ctl47_g_fa1642fb_8173_4dfa_a0b7_e943bca4c67a_txtEndDate").datepicker({
+        $("input[data-type='datepicker-end']").datepicker({
             defaultDate: null,
             dateFormat: "dd/mm/yy",
             changeMonth: true,
             minDate: 0,
             onSelect: function (selected) {
-                $("#ctl00_ctl47_g_fa1642fb_8173_4dfa_a0b7_e943bca4c67a_txtStartDate").datepicker("option", "maxDate", selected)
+                $("input[data-type='datepicker-start']").datepicker("option", "maxDate", selected)
             }
         });        
         $('.activitySearchHomeHeader a').click(function () {
