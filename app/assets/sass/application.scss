@@ -236,6 +236,7 @@ hr.light {
 
 	}
 
+
 }
 
   @media (max-width: 767px){   
@@ -597,8 +598,9 @@ BLOCK LINKS
     position: absolute;
     background: #ECF0F1 url(../images/fullWidthSectionOne-bk-bottom.png) top left repeat-x;
     width:100%;
-    height:86px;
+    height:130px;
     z-index:7;
+    margin-top:-21px;
 }
 
 
@@ -1194,4 +1196,45 @@ ERROR PAGE
 .mapToggle a.btn {
     width: 49.9%;
 }
+}
+
+
+/*****************
+NEWS SEARCH
+*****************/
+
+ .searchControlContainer, .SearchControlContainerKeyword, .SearchControlContainerDate, .archiveContainer, .storyListContainer, .StoryListContainer {
+	padding: 20px;
+	margin: 0px 0px 20px;
+	float: left;
+	color: #9B59B6;
+	width:100%;
+	border:1px solid #ECF0F1;
+	background:#F7F9F9;
+    font-size:14px;
+}
+ .searchControlContainer h3, .SearchControlContainerKeyword h3, .SearchControlContainerDate h3, .archiveContainer h2, .storyListContainer h2, .StoryListContainer h2 {
+	color: #293238;
+	font-size: 20px;
+	line-height: 1.2em;
+	padding: 0px;
+	margin-bottom: 20px;
+	font-weight:normal;
+}
+ .searchControlContainer strong, .SearchControlContainerKeyword strong, .SearchControlContainerDate strong, .archiveContainer strong, .storyListContainer strong, .StoryListContainer strong {
+	font-weight:bold;
+	color: #9B59B6;
+}
+ .searchControlContainer input, .SearchControlContainerKeyword input, .SearchControlContainerDate input, .archiveContainer input, .storyListContainer input, .StoryListContainer input {
+	padding:10px;
+	float:left;
+	height:40px;
+	border:1px solid #ddd;
+}
+
+.archiveContainer #accordion .ui-state-active {
+background:#fff;
+}
+.archiveContainer #accordion li {
+background: #fff;
 }
