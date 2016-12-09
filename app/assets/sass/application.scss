@@ -38,7 +38,7 @@ $main-nav-background:#3498DB ;
 //$footer-nav-selected-link:#133E8D ;
 
 // sectionSubsite.scss - socialamedia.scss
-//$section-Background:#efefef ;
+$section-Background:#F7F9F9 ;
 
 //  socialamedia.scss
 //$social-link-color:#337ab7 ;
@@ -112,6 +112,15 @@ $sectionFive-background-color:transparent;
 //$heroFontBackground:rgba(0, 0, 0, 0.5); 
 //$heroFontcolor:#fff; 
 
+//news
+$news-button-background: #3498DB ;
+$news-pod-back:#fff ;
+$news-pod-border-color:#ECF0F1;
+
+//accordion
+$accordion-color:#3498DB;
+$accordion-border-color:#ECF0F1;
+
 @import 'mixins';
 @import 'variables';
 @import 'brandColors';
@@ -134,6 +143,8 @@ $sectionFive-background-color:transparent;
 @import 'sharepointOverides';
 @import 'iconLinks';
 @import 'heroBanner';
+@import 'news';
+
 
 
 h1{
@@ -170,6 +181,9 @@ hr.light {
 .breadcrumb {
     margin: 80px 0 0 0;
 }
+.sectionOne .col-md-4{
+	margin-top:100px;
+}
 
 .sectionFive{
     padding:90px 0 0px; 
@@ -189,7 +203,9 @@ hr.light {
     top:0px;
 }
 
-
+.sectionSubsite{
+	border:1px solid #ECF0F1;
+}
 
 
 // logo overides to accomodate diiferent logo aspect ratios
@@ -1196,45 +1212,4 @@ ERROR PAGE
 .mapToggle a.btn {
     width: 49.9%;
 }
-}
-
-
-/*****************
-NEWS SEARCH
-*****************/
-
- .searchControlContainer, .SearchControlContainerKeyword, .SearchControlContainerDate, .archiveContainer, .storyListContainer, .StoryListContainer {
-	padding: 20px;
-	margin: 0px 0px 20px;
-	float: left;
-	color: #9B59B6;
-	width:100%;
-	border:1px solid #ECF0F1;
-	background:#F7F9F9;
-    font-size:14px;
-}
- .searchControlContainer h3, .SearchControlContainerKeyword h3, .SearchControlContainerDate h3, .archiveContainer h2, .storyListContainer h2, .StoryListContainer h2 {
-	color: #293238;
-	font-size: 20px;
-	line-height: 1.2em;
-	padding: 0px;
-	margin-bottom: 20px;
-	font-weight:normal;
-}
- .searchControlContainer strong, .SearchControlContainerKeyword strong, .SearchControlContainerDate strong, .archiveContainer strong, .storyListContainer strong, .StoryListContainer strong {
-	font-weight:bold;
-	color: #9B59B6;
-}
- .searchControlContainer input, .SearchControlContainerKeyword input, .SearchControlContainerDate input, .archiveContainer input, .storyListContainer input, .StoryListContainer input {
-	padding:10px;
-	float:left;
-	height:40px;
-	border:1px solid #ddd;
-}
-
-.archiveContainer #accordion .ui-state-active {
-background:#fff;
-}
-.archiveContainer #accordion li {
-background: #fff;
 }
