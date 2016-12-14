@@ -10,7 +10,9 @@
     "tasks": [
         {
             "taskName": "upload",
-            "args": [],
+            "args": [
+                "--debug"
+            ],
             "isBuildCommand": true,
             "isWatching": false,
             "problemMatcher": [
