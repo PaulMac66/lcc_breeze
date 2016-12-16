@@ -2,6 +2,17 @@
   'use strict'
 
   var LCC = global.LCC || {}
+  LCC.Settings = LCC.Settings || {}
+
+  LCC.Settings.NewsUrl = "/Pages/News.aspx";
+
+  global.LCC = LCC
+  
+})(window, jQuery);
+(function (global, $) {
+  'use strict'
+
+  var LCC = global.LCC || {}
   LCC.Modules = LCC.Modules || {}
 
   LCC.Modules.GoogleMap = function () {
@@ -123,7 +134,7 @@
         }); 
         $("input[data-type='datepicker-start-nomin']").datepicker({
             defaultDate: null,
-            dateFormat: "dd/mm/yy",
+            dateFormat: "yy/mm/dd",
             changeMonth: true,
             onSelect: function(selected) {
                 $("input[data-type='datepicker-end-nomin']").datepicker("option", "minDate", selected)
@@ -131,7 +142,7 @@
         });
         $("input[data-type='datepicker-end-nomin']").datepicker({
             defaultDate: null,
-            dateFormat: "dd/mm/yy",
+            dateFormat: "yy/mm/dd",
             changeMonth: true,
             onSelect: function (selected) {
                 $("input[data-type='datepicker-start-nomin']").datepicker("option", "maxDate", selected)
