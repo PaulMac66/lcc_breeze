@@ -57,29 +57,8 @@ gulp.task('sync:assets', ['clean:dist'], (done) => {
     }).catch((err) => { done(err);})
 });
 
-//Sync app/assets/javascripts/application.js to dist/_catalogs/masterpages/public/javascripts
-//Use mince to add required js files
-gulp.task('sync:javascripts', ['sync:lcc_sharepoint_toolkit_webparts'], (done) => {
-    return gulp.src('app/assets/javascripts/application.js')
-        .pipe(mince(env))
-        //don't uglify if gulp is ran with '--debug'
-        .pipe(gutil.env.debug ? gutil.noop() : uglify({preserveComments: 'all'}))
-        .pipe(gulp.dest('dist/_catalogs/masterpage/public/javascripts'));
-});
-
-//Sync node_modules/lcc_sharepoint_toolkit/webparts to dist/_catalogs/wp (ignore any that aren't in manifest)
-gulp.task('sync:lcc_sharepoint_toolkit_webparts', ['sync:assets'], (done) => {
-    return gulp.src('node_modules/lcc_sharepoint_toolkit/webparts/*.webpart')
-        .pipe(foreach(function(stream, file) {
-            return stream.pipe(ignore.exclude(!(_.includes(manifest.webparts, path.basename(file.path,'.webpart')))))
-                .pipe(gulp.dest('dist/_catalogs/wp'))
-        }))
-})
-
-
-
 //Sync lcc_frontend_toolkit to lcc_modules to be used for SASS partial compilation
-gulp.task('sync:lcc_frontend_toolkit', ['sync:javascripts'], (done) => {
+gulp.task('sync:lcc_frontend_toolkit', ['sync:assets'], (done) => {
     syncy(['node_modules/lcc_frontend_toolkit/**'], 'lcc_modules/lcc_frontend_toolkit', {
             base: 'node_modules/lcc_frontend_toolkit',
             updateAndDelete: true
@@ -88,8 +67,27 @@ gulp.task('sync:lcc_frontend_toolkit', ['sync:javascripts'], (done) => {
     }).catch((err) => { done(err);})
 });
 
+//Sync app/assets/javascripts/application.js to dist/_catalogs/masterpages/public/javascripts
+//Use mince to add required js files
+gulp.task('sync:javascripts', ['sync:lcc_frontend_toolkit'], (done) => {
+    return gulp.src('app/assets/javascripts/application.js')
+        .pipe(mince(env))
+        //don't uglify if gulp is ran with '--debug'
+        .pipe(gutil.env.debug ? gutil.noop() : uglify({preserveComments: 'all'}))
+        .pipe(gulp.dest('dist/_catalogs/masterpage/public/javascripts'));
+});
+
+//Sync node_modules/lcc_sharepoint_toolkit/webparts to dist/_catalogs/wp (ignore any that aren't in manifest)
+gulp.task('sync:lcc_sharepoint_toolkit_webparts', ['sync:javascripts'], (done) => {
+    return gulp.src('node_modules/lcc_sharepoint_toolkit/webparts/*.webpart')
+        .pipe(foreach(function(stream, file) {
+            return stream.pipe(ignore.exclude(!(_.includes(manifest.webparts, path.basename(file.path,'.webpart')))))
+                .pipe(gulp.dest('dist/_catalogs/wp'))
+        }))
+})
+
 //Sync lcc_templates_sharepoint/assets excluding JS to dist/_catalogs/masterpages/public
-gulp.task('sync:lcc_templates_sharepoint_assets', ['sync:lcc_frontend_toolkit'], (done) => {
+gulp.task('sync:lcc_templates_sharepoint_assets', ['sync:lcc_sharepoint_toolkit_webparts'], (done) => {
     syncy(['node_modules/lcc_templates_sharepoint/assets/**/*', '!node_modules/lcc_templates_sharepoint/assets/**/*.json', '!node_modules/lcc_templates_sharepoint/assets/javascripts/*', '!node_modules/lcc_templates_sharepoint/assets/stylesheets/*'], 'dist/_catalogs/masterpage/public', {
             base: 'node_modules/lcc_templates_sharepoint/assets',
             updateAndDelete: false
