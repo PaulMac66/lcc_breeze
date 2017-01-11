@@ -121,6 +121,9 @@ $news-pod-border-color:#ECF0F1;
 $accordion-color:#3498DB;
 $accordion-border-color:#ECF0F1;
 
+//SideNav
+$sidenav-active-color:#3498DB ;
+
 @import 'mixins';
 @import 'variables';
 @import 'brandColors';
@@ -133,7 +136,7 @@ $accordion-border-color:#ECF0F1;
 @import 'promo';
 @import 'carousel';
 //@import 'socialMedia';
-//@import 'sideNavigation';
+@import 'sideNavigation';
 //@import 'blockLinks';
 @import 'accordion';
 @import 'promoGroup';
@@ -839,49 +842,6 @@ img {
 }
 
 
-.sideNav {
-    margin-top:100px;
-    padding: 10px 20px 20px;
-    background: #F7F9F9;
-    margin-bottom: 20px ;
-    border: 1px solid #ECF0F1;
-
-    li{
-        list-style:none;
-    }
-
-    li:first-of-type a{
-         font-size: 1.4em;
-         background:transparent;
-         &:hover{
-             background:transparent;
-             text-decoration:underline;
-             color:$menu-link-color;
-         }
-    }
-
-    a {
-            font-size: 1.1em;
-            line-height: 1.2em;
-            display: inline-block;
-            margin: 0px 0px 5px;
-            padding: 10px ;
-            background: #fff;
-            width: 100%;
-
-            &:hover{
-                    background: #3498DB;
-                    color: #fff;
-                    }
-
-            &.selected {
-                    color: #9B59B6;
-                    background:transparent;
-            }
-    }
-
-
-}
 
 
 /************
