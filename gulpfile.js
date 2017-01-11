@@ -48,7 +48,7 @@ gulp.task('clean:dist', (done) => {
 
 //Sync assets to public folder excluding SASS files and JS
 gulp.task('sync:assets', ['clean:dist'], (done) => {
-    syncy(['app/assets/**/*', '!app/assets/sass/**',  '!app/assets/javascripts/**', '!app/assets/*_subsite/javascripts/**', '!app/assets/*_subsite/sass/**', '!app/assets/*_subsite/socialBookmarks.html', '!app/assets/webparts/**'], './dist/_catalogs/masterpage/public', {
+    syncy(['app/assets/**/*', '!app/assets/sass/**',  '!app/assets/javascripts/**', '!app/assets/*_subsite/javascripts/**', '!app/assets/*_subsite/sass/**', '!app/assets/*_subsite/footerCustom.html', '!app/assets/webparts/**'], './dist/_catalogs/masterpage/public', {
             ignoreInDest: '**/stylesheets/**',
             base: 'app/assets',
             updateAndDelete: false
@@ -125,8 +125,8 @@ gulp.task('sync:lcc_templates_sharepoint_views', ['sync:lcc_templates_sharepoint
 var replacements = {};
 
 replacements.css =  util.format('/_catalogs/masterpage/public/stylesheets/%s.css?rev=%s', packageName.replace(/_/g, '-'), Uuid());
-if(fileExists('./socialBookmarks.html')) {
-    replacements.socialBookmarks = fs.readFileSync('socialBookmarks.html').toString()
+if(fileExists('./footerCustom.html')) {
+    replacements.footerCustom = fs.readFileSync('footerCustom.html').toString()
 }
 
 //Update app css ref and rename master
@@ -180,10 +180,10 @@ gulp.task('sync:subsites_master', ['sass:subsites'], (done) => {
             var replacements = {};
             replacements.css =  util.format('/_catalogs/masterpage/public/%s/stylesheets/application.css', subsiteName);
 
-            if(fileExists(folder.path + '/socialBookmarks.html')) {
-                replacements.socialBookmarks = fs.readFileSync(folder.path + '/socialBookmarks.html').toString()
-            } else if(fileExists('./socialBookmarks.html')) {
-                 replacements.socialBookmarks = fs.readFileSync('socialBookmarks.html').toString()
+            if(fileExists(folder.path + '/footerCustom.html')) {
+                replacements.footerCustom = fs.readFileSync(folder.path + '/footerCustom.html').toString()
+            } else if(fileExists('./footerCustom.html')) {
+                 replacements.footerCustom = fs.readFileSync('footerCustom.html').toString()
             }
 
             return gulp.src("node_modules/lcc_templates_sharepoint/views/lcc-template.master")
