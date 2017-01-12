@@ -64,5 +64,14 @@
             },
             "Group": "LCC"
         }
+    },
+    {
+        "name": "LCCNewsResultsSearch.webpart",
+        "metadata": {
+            "__metadata": {
+                "type": "SP.Data.OData__x005f_catalogs_x002f_wpItem"
+            },
+            "Group": "LCC"
+        }
     }
 ]
