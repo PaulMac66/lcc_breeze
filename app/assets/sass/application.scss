@@ -147,6 +147,11 @@ $sidenav-active-color:#3498DB ;
 @import 'iconLinks';
 @import 'heroBanner';
 @import 'news';
+@import 'polaroids';
+@import 'groupPromo';
+@import 'blocklinks';
+@import 'contentLink';
+
 
 
 
@@ -980,49 +985,7 @@ HTML STYLES
 
 /*END*/
 
-/*POLAROID ADDITIONAL STYLE*/
 
-.breezePolaroid .listWebpart img {
-	width: 100%;
-	margin: 0px;
-	border: 6px solid #293238;
-	margin-bottom: 10px;
-	background: #fff;
-	display: block !important;
-	padding: 0px !important;
-}
-
-.onePolaroid{
-	width:100%;
-	margin:20px 0 50px;
-}
-
-.twoPolaroids{
-	width:50%;
-	margin:40px 0;
-}
-
-.fourPolaroids{
-	width:25%;
-	margin:20px 0 50px;
-}
-
-@media only screen and (max-width: 800px){
-.fourPolaroids{
-	width:50%;
-	margin:20px 0px;
-	min-height:300px;
-}
-}
-
-@media only screen and (max-width: 500px){
-.onePolaroid, .twoPolaroids, .fourPolaroids{
-	width:100%;
-	margin:20px 0;
-}
-}
-
-/*POLAROID STYLES END*/
 
 /*********************
  NEWSLETTER SUBSCRIBE
@@ -1170,4 +1133,8 @@ ERROR PAGE
 .mapToggle a.btn {
     width: 49.9%;
 }
+}
+
+.mainContentArticle img {
+    max-width: 50%;
 }
