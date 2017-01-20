@@ -3,7 +3,7 @@
 (function ($) {
     
     $(document).ready(function () {
-              jQuery('ul.date-list').each(function () {
+      jQuery('ul.date-list').each(function () {
           var LiN = jQuery(this).find('li').length;
           if (LiN > 3) {
               jQuery('li', this).eq(2).nextAll().hide().addClass('toggleable');
