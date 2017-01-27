@@ -7,67 +7,73 @@
 	    LCC.Modules.SubscribeToNewsletter = function () {
 	        this.start = function (element) {
 
-                var nameInput = $("input[title='Name']");
-                var emailInput = $("input[title='Email']");
-                var dobInput = $("input[title='Dob']");
-                var postcodeInput = $("input[title='Postcode']");
+                var inDesignMode = document.forms[MSOWebPartPageFormName].MSOLayout_InDesignMode.value;
 
-                $.validator.addMethod("regex", function (value, element, regexpr) {
-                    return regexpr.test(value.toUpperCase());
-                }, "Please enter a valid postcode.");
+				if (inDesignMode != "1") 
+                {
+                    var nameInput = $("input[title='Name']");
+                    var emailInput = $("input[title='Email']");
+                    var dobInput = $("input[title='Dob']");
+                    var postcodeInput = $("input[title='Postcode']");
 
-                $("#aspnetForm").validate();
+                    $.validator.addMethod("regex", function (value, element, regexpr) {
+                        return regexpr.test(value.toUpperCase());
+                    }, "Please enter a valid postcode.");
 
-                $(nameInput).rules("add", {
-                    required: true,
-                    messages:
-                    {
-                        required: "Please enter your first name"
-                    }
-                });
+                    $("#aspnetForm").validate();
 
-                $(emailInput).rules("add", {
-                    email: true,
-                    required: true,
-                    messages:
-                    {
-                        email: "Please enter a valid email",
-                        required: "Please enter your email address"
-                    }
-                });
+                    $(nameInput).rules("add", {
+                        required: true,
+                        messages:
+                        {
+                            required: "Please enter your first name"
+                        }
+                    });
 
-                $(dobInput).rules("add", {
-                    required: true,
-                    messages:
-                    {
-                        required: "Please enter a date of birth"
-                    }
-                });
+                    $(emailInput).rules("add", {
+                        email: true,
+                        required: true,
+                        messages:
+                        {
+                            email: "Please enter a valid email",
+                            required: "Please enter your email address"
+                        }
+                    });
 
-                $(postcodeInput).rules("add", {
-                    required: true,
-                    regex: /(GIR ?0AA|[A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]([0-9ABEHMNPRV-Y])?)|[0-9][A-HJKPS-UW]) ?[0-9][ABD-HJLNP-UW-Z]{2})/,
-                    messages:
-                    {
-                        required: "Please enter a postcode",
-                        regex: "Please enter a valid postcode"
-                    }
-                });
+                    $(dobInput).rules("add", {
+                        required: true,
+                        messages:
+                        {
+                            required: "Please enter a date of birth"
+                        }
+                    });
 
-                $(dobInput).datepicker({
-                    defaultDate: null,
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-19:+0",
-                    minDate: "-19Y",
-                    maxDate: "0",
-                    onSelect: function (selected) {
-                        $(dobInput).datepicker("option", "minDate", selected);
-                        $(this).change();
-                    }
+                    $(postcodeInput).rules("add", {
+                        required: true,
+                        regex: /(GIR ?0AA|[A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]([0-9ABEHMNPRV-Y])?)|[0-9][A-HJKPS-UW]) ?[0-9][ABD-HJLNP-UW-Z]{2})/,
+                        messages:
+                        {
+                            required: "Please enter a postcode",
+                            regex: "Please enter a valid postcode"
+                        }
+                    });
 
-                });
+                    $(dobInput).datepicker({
+                        defaultDate: null,
+                        dateFormat: "dd/mm/yy",
+                        changeMonth: true,
+                        changeYear: true,
+                        yearRange: "-19:+0",
+                        minDate: "-19Y",
+                        maxDate: "0",
+                        onSelect: function (selected) {
+                            $(dobInput).datepicker("option", "minDate", selected);
+                            $(this).change();
+                        }
+
+                    });
+
+                }
 
             }
         

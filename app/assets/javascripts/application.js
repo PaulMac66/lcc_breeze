@@ -9,6 +9,7 @@
 //= require keyword-filter
 //= require news-archive-filter
 //= require events-dateListToggle
+//= require page-comments
 
 
  
