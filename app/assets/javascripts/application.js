@@ -10,6 +10,7 @@
 //= require news-archive-filter
 //= require events-dateListToggle
 //= require page-comments
+//= require contact-us
 
 
  
