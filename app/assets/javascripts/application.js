@@ -1,8 +1,6 @@
 //= require jquery.validate
 //= require handlebars
 //= require breeze-settings
-//= require breeze-googlemaps
-//= require breeze-searchresults
 //= require breeze-searchbehaviour
 //= require breeze-subscribetonewsletter
 //= require date-range-filter
@@ -13,6 +11,5 @@
 //= require contact-us
 //= require survey
 //= require google-analytics
-
-
- 
+//= require google-maps
+//= require resize-search-results
