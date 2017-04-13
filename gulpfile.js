@@ -264,6 +264,11 @@ gulp.task('prompt',['pre-flight'], function () {
     );
 });
 
+function handleError (err) {
+  console.log(err.toString())
+  process.exit(-1)
+}
+
 gulp.task('sp-upload', ['prompt'], (done) => {
     var glob = gutil.env.css ? 'dist/**/*.css' :'dist/**/*.*';
     return gulp.src(glob)
@@ -280,6 +285,7 @@ gulp.task('sp-upload', ['prompt'], (done) => {
         "update_metadata":true,
         "files_metadata": metadata
     })
+    .on('error', handleError)
     );
 });
 
