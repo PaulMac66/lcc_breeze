@@ -265,7 +265,7 @@ gulp.task('prompt',['pre-flight'], function () {
 });
 
 function handleError (err) {
-  console.log(err.toString())
+  console.log("error" + err.toString())
   process.exit(-1)
 }
 
@@ -285,8 +285,7 @@ gulp.task('sp-upload', ['prompt'], (done) => {
         "update_metadata":true,
         "files_metadata": metadata
     })
-    .on('error', handleError)
-    );
+    ).on('error', handleError);
 });
 
 gulp.task('default',  ['clean:dist', 'sync:assets', 'sync:lcc_frontend_toolkit', 'sync:javascripts', 'sync:lcc_sharepoint_toolkit_webparts', 'sync:lcc_sharepoint_toolkit_displaytemplates', 'sync:lcc_sharepoint_toolkit_xslstylesheets', 'sync:lcc_templates_sharepoint_assets', 'sync:lcc_templates_sharepoint_stylesheets', 'sync:lcc_templates_sharepoint_javascript', 'sync:lcc_templates_sharepoint_views', 'sync:lcc_templates_sharepoint_master', 'sass', 'sass:subsites', 'sync:subsites_master']);
