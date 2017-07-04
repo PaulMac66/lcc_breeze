@@ -13,3 +13,8 @@
 //= require google-analytics
 //= require google-maps
 //= require resize-search-results
+//= require zoom.js
+//= require newswidget.js
+
+
+ 
