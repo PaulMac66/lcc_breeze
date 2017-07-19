@@ -152,6 +152,8 @@ $sidenav-active-color:#3498DB ;
 @import 'blocklinks';
 @import 'contentLink';
 @import 'docList';
+@import 'accessibility';
+@import 'browser-alert';
 
 
 
@@ -1020,3 +1022,4 @@ form
  display:inline-block;
 }
 }
+
