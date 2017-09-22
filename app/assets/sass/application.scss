@@ -124,6 +124,14 @@ $accordion-border-color:#ECF0F1;
 //SideNav
 $sidenav-active-color:#3498DB ;
 
+//button colours
+$primary-button-background-color:#9B59B6;
+$primary-button-color:white;
+//$secondary-button-background-color:blue;
+//$secondary-button-color:white ;
+$outline-button-border-color:#9B59B6;
+$outline-button-color:#9B59B6;
+
 @import 'mixins';
 @import 'variables';
 @import 'brandColors';
@@ -154,6 +162,7 @@ $sidenav-active-color:#3498DB ;
 @import 'docList';
 @import 'accessibility';
 @import 'browser-alert';
+@import 'buttons';
 
 
 
@@ -373,7 +382,7 @@ ACTIVITY SEARCH HOME
 
 .activitySearchHome{
    text-align: center;
-   padding: 50px 0px 20px 0px;
+   padding: 50px 0px 0px 0px;
    border-top:4px solid #1F74AD;
    background:#3498DB;
 
@@ -1021,6 +1030,15 @@ form
  float:none;
  display:inline-block;
 }
+}
+
+.btn.btn-arrow.search{
+	border:4px solid #fff;
+
+	&:after{
+		content:'\f002';
+		right:5px;
+	}
 }
 
 
