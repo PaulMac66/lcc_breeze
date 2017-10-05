@@ -164,8 +164,7 @@ $outline-button-color:#9B59B6;
 @import 'browser-alert';
 @import 'buttons';
 
-
-
+@import 'form_elements';
 
 h1{
 	font-family: 'Montserrat', sans-serif;
@@ -1055,4 +1054,26 @@ h2,
 h3,
 h4{
 	font-weight: 700;
+}
+
+//temporary fix for contact form webpart
+.form-group{
+  label{
+    display:block;
+  }
+
+  .lcc-input{
+	  @extend .form-control;
+  }
+
+  textarea {
+	  &.lcc-input{
+		height: auto;
+	}
+  }
+}
+
+button, input[type=button], input[type=reset], input[type=submit] {
+    @extend .btn;
+	@extend .btn-primary;
 }
